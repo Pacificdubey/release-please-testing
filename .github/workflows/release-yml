@@ -1,0 +1,21 @@
+name: release-action
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    outputs:
+      version: ${{ steps.rp-action.outputs.version }}
+      major: ${{ steps.rp-action.outputs.major }}
+      minor: ${{ steps.rp-action.outputs.minor }}
+      release_created: ${{ steps.rp-action.outputs.release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: rp-action
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
