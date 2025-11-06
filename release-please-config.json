@@ -4,7 +4,7 @@
   "include-component-in-tag": true,
   "tag-separator": "-",
   "packages": {
-    "product": {
+    "product-test": {
       "paths": [
         "product/",
         "utils/",
@@ -14,7 +14,7 @@
       "component": "product",
       "changelog-type": "github"
     },
-    "domain": {
+    "release-test": {
       "paths": [
         "domain/",
         "utils/",
