@@ -6,7 +6,9 @@ on:
       - '**'
       - '!release-please--**'
     paths:
-      - 'domain/**,utils/**,configuration/**'
+      - 'domain/**'
+      - 'utils/**'
+      - 'configuration/**'
       - '!**/CHANGELOG.md'
     tags:
       - 'domain-v*'
