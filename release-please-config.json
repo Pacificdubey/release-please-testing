@@ -5,8 +5,8 @@
   "tag-separator": "-",
   "packages": {
     "product": {
+      "path": "product/",
       "paths": [
-        "product/",
         "utils/",
         "configuration/"
       ],
