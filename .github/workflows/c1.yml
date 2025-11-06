@@ -6,7 +6,9 @@ on:
       - '**'
       - '!release-please--**'
     paths:
-      - 'product/**,utils/**,configuration/**'
+      - 'product/**'
+      - 'utils/**'
+      - 'configuration/**'
       - '!**/CHANGELOG.md'
     tags:
       - 'product-v*'
