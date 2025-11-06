@@ -1,0 +1,32 @@
+name: CI - Product
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!release-please--**'
+    paths:
+      - 'product/**,utils/**,configuration/**'
+      - '!**/CHANGELOG.md'
+    tags:
+      - 'product-v*'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  checks: write
+  contents: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  
+  build-product:
+    name: Checkout and package
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
