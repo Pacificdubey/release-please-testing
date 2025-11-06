@@ -1,0 +1,35 @@
+name: CI - Domain
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!release-please--**'
+    paths:
+      - 'domain/**,utils/**,configuration/**'
+      - '!**/CHANGELOG.md'
+    tags:
+      - 'domain-v*'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  checks: write
+  contents: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  
+  build-product:
+    name: Checkout and package
+    runs-on: ubuntu-latest
+    outputs:
+      sha_output: ${{ steps.short-sha.outputs.short-sha }}
+
+    steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
